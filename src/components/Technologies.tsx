@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import TechCard from './TechCard'
+import YourStack from './YourStack'
 import type { ITech } from '../types/tech'
 
 function Technologies() {
@@ -19,6 +20,14 @@ function Technologies() {
   const addToStack = (tech: ITech) => {
     if (stack.some((item) => item.id === tech.id)) return
     setStack([...stack, tech])
+  }
+
+  const removeFromStack = (id: string) => {
+    setStack(stack.filter((tech) => tech.id !== id))
+  }
+
+  const removeAll = () => {
+    setStack([])
   }
 
   return (
@@ -45,15 +54,18 @@ function Technologies() {
           <p className="mt-4 text-sm text-slate-500">Loading technologies...</p>
         </div>
       ) : (
-        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {technologies.map((tech) => (
-            <TechCard
-              key={tech.id}
-              tech={tech}
-              isInStack={stack.some((item) => item.id === tech.id)}
-              onAdd={addToStack}
-            />
-          ))}
+        <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-3 xl:grid-cols-3">
+            {technologies.map((tech) => (
+              <TechCard
+                key={tech.id}
+                tech={tech}
+                isInStack={stack.some((item) => item.id === tech.id)}
+                onAdd={addToStack}
+              />
+            ))}
+          </div>
+          <YourStack stack={stack} onRemove={removeFromStack} onRemoveAll={removeAll} />
         </div>
       )}
     </section>
