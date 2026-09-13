@@ -64,7 +64,7 @@ function Technologies() {
         </div>
       ) : (
         <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-4">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-3 xl:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-3 lg:grid-cols-3">
             {technologies.map((tech) => (
               <TechCard
                 key={tech.id}

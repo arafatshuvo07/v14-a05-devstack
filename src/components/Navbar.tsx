@@ -73,7 +73,7 @@ function Navbar() {
           <button className="btn btn-ghost btn-xs px-1 text-xs text-slate-600 sm:btn-sm sm:px-3 sm:text-sm">
             Sign In
           </button>
-          <button className="btn btn-xs rounded-full border-none bg-pink-500 px-2 text-xs text-white hover:bg-pink-600 sm:btn-sm sm:px-5 sm:text-sm">
+          <button className="btn-gradient btn btn-xs rounded-full border-none px-2 text-xs text-white sm:btn-sm sm:px-5 sm:text-sm">
             Sign Up
           </button>
         </div>

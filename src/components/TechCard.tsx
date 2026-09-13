@@ -38,7 +38,7 @@ function TechCard({
         className={
           isInStack
             ? 'btn mt-4 w-full cursor-default rounded-lg border-none bg-green-100 text-green-700'
-            : 'btn mt-4 w-full rounded-lg border-none bg-slate-900 text-white hover:bg-slate-800'
+            : 'btn-gradient btn mt-4 w-full rounded-lg border-none text-white'
         }
       >
         {isInStack ? '✓ Added to Stack' : 'Add to Stack'}
