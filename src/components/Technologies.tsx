@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 import TechCard from './TechCard'
 import YourStack from './YourStack'
 import type { ITech } from '../types/tech'
@@ -18,16 +19,24 @@ function Technologies() {
   }, [])
 
   const addToStack = (tech: ITech) => {
-    if (stack.some((item) => item.id === tech.id)) return
+    if (stack.some((item) => item.id === tech.id)) {
+      toast.warn(`${tech.name} is already in your stack!`)
+      return
+    }
     setStack([...stack, tech])
+    toast.success(`${tech.name} added to your stack!`)
   }
 
   const removeFromStack = (id: string) => {
+    const removed = stack.find((tech) => tech.id === id)
+    if (!removed) return
     setStack(stack.filter((tech) => tech.id !== id))
+    toast.info(`${removed.name} removed from your stack`)
   }
 
   const removeAll = () => {
     setStack([])
+    toast.info('Your stack has been cleared')
   }
 
   return (
